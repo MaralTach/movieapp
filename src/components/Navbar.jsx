@@ -13,15 +13,19 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useAuthContext } from "@/context/AuthContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
-  const currentUser ={
-    displayName:"Maral"
-  }
+  // const currentUser ={
+  //   displayName:"Maral"
+  // }
+
+  const {currentUser} = useAuthContext()
+
   const [showBackground, setShowBackground] = useState(false);
 
   useEffect(() => {
