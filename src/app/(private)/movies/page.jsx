@@ -1,11 +1,10 @@
-import React from 'react'
+import { getMovies } from "@/helpers/movieFunctions";
+import React from "react";
 
-const Movies = () => {
-  return (
-    <div>Movies
-    
-    </div>
-  )
-}
+const Movies = async () => {
+  const movies = await getMovies("now_playing");
+  console.log(movies);
+  return <div>Movies</div>;
+};
 
-export default Movies
+export default Movies;
