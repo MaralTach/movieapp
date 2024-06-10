@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import GoogleIcon from "/public/icons/GoogleIcon";
 import { useAuthContext } from "@/context/AuthContext";
+import Link from "next/link";
 
 const Login = () => {
   const [info, setInfo] = useState({
     email: "",
     password: "",
   });
-  const { signIn} = useAuthContext();
+  const { signIn , signUpProvider} = useAuthContext();
 
   const handleChange = (e) =>
     setInfo({ ...info, [e.target.name]: e.target.value });
@@ -50,6 +51,22 @@ const Login = () => {
                 />
                 <label htmlFor="floating_password">Password</label>
               </div>
+
+               <div className="flex justify-between">
+                <span
+                  onClick={() => forgotPassword(info.email)}
+                  className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
+                >
+                  Forgot Password
+                </span>
+                <Link
+                  className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
+                  href="/register"
+                >
+                  Sign Up
+                </Link>
+              </div>
+
               <button className="btn-danger" type="submit">
                 Login
               </button>

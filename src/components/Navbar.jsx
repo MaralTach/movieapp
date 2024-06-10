@@ -24,7 +24,7 @@ export default function Navbar() {
   //   displayName:"Maral"
   // }
 
-  const {currentUser} = useAuthContext()
+  const {currentUser , logOut} = useAuthContext()
 
   const [showBackground, setShowBackground] = useState(false);
 
@@ -129,7 +129,8 @@ export default function Navbar() {
                         className={classNames(
                           focus ? "bg-gray-100" : "",
                           "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
-                        )}
+                        )} 
+                        onClick ={() => logOut()}
                       >
                         Log out
                       </span>
