@@ -5,7 +5,7 @@ export const getMovies = async (type) => {
 
   const res = await fetch(URL);
   if(!res.ok){
-    throw new Error("Something went wrong");
+    throw new Error("Failed");
   }
   const data = await res.json();
   return data;
